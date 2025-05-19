@@ -88,5 +88,16 @@ document.addEventListener('DOMContentLoaded', () => {
             contactForm.reset();
         });
     }
+
+    // --- AUTO SLIDE FUNCTIONALITY ---
+    const AUTO_SLIDE_INTERVAL = 4000; // 4 seconds
+
+    if (tiles.length > 1) {
+        setInterval(() => {
+            activeIndex = getNextIndex(activeIndex);
+            updateTilePositions(activeIndex);
+            updateProjectInfo(tiles[activeIndex]);
+        }, AUTO_SLIDE_INTERVAL);
+    }
 });
 
